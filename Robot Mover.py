@@ -4,6 +4,9 @@
 # Section B04
 # We worked on this homework assignment alone, using this semester's course materials
 
+# This code takes input from a person using the arrow keys on a computer, and moves the robot in the direction specified.
+# The robot is then able to play back it's movements by reading from a file that stored the inputs in raw text.
+
 from Myro import *
 from Graphics import *
 #init("/dev/tty.Fluke2-02A9-Fluke2")
@@ -12,6 +15,8 @@ from Graphics import *
 f = open('myMovements.txt', 'w')
 
 
+# This moves the robot when the user inputs an arrow key.
+# Each conditional creates a string called "data" that gets written to the myMovements file at the end of the function.
 # This has part 1 and part 2.
 def robotMover(win,event):
     key = event.key
@@ -42,8 +47,8 @@ def robotMover(win,event):
         f.write(data + "\n")
     f.close()
 
-
-# This reads the file and returns that sentence.
+# This function reads the file of movements and adds up the moves and times spent moving.
+# Then it returns a sentence with all the correct data.
 def collectData(filename, direction):
     x = 0
     b = 0
@@ -68,7 +73,7 @@ def collectData(filename, direction):
     return retString
     
 
-# This replays the robots movements
+# This replays the robots movements from the myMovements file.
 def replay(filename):
     f = open(filename, "r")
     aStr = f.read()
@@ -91,6 +96,7 @@ def replay(filename):
             beep(moveTime, 800)
     f.close()
     
+# Using calico's graphics window, the user is able to input commands at any time.
 
 win  = Window("KeyHandler",200,200)
 onKeyPress(robotMover)
