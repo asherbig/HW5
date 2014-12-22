@@ -1,6 +1,5 @@
 # Alexander Herbig and Nia Hall
 # aherbig3@gatech.edu nhall35@gatech.edu
-# GTID: 903035515
 # Section B04
 # We worked on this homework assignment alone, using this semester's course materials
 
